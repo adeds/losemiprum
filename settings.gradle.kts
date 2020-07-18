@@ -1,4 +1,4 @@
-include(":feature:home")
-include(":common:data")
 include(":common:model")
+include(":common:core")
+include(":feature:home")
 include(":app")

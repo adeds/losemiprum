@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.dynamic-feature")
+    id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdkVersion(30)
     buildToolsVersion = "30.0.0"
-    buildFeatures.viewBinding = true
+
     defaultConfig {
         minSdkVersion(19)
         targetSdkVersion(30)
@@ -34,11 +34,24 @@ android {
 
 dependencies {
     val kotlinVersion = "1.3.72"
+    val daggerVersion = "2.15"
+    val retrofitVersion = "2.9.0"
+
+    api(project(":common:model"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(project(":app"))
-    implementation("androidx.core:core-ktx:1.3.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    kapt("com.google.auto.service:auto-service:1.0-rc7")
+    implementation("androidx.core:core-ktx:1.3.0")
+    implementation("androidx.appcompat:appcompat:1.1.0")
+
+    implementation("com.google.android.play:core:1.7.3")
+
+    //hilt di
+    api("com.google.dagger:dagger-android:$daggerVersion")
+    api("com.google.dagger:dagger-android-support:$daggerVersion")
+    kapt("com.google.dagger:dagger-android-processor:$daggerVersion")
+    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
+
+    api("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    api("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 }

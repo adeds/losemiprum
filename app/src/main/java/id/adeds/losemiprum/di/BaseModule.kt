@@ -1,18 +1,22 @@
 package id.adeds.losemiprum.di
 
+import android.app.Application
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
-import id.adeds.data.api.UserApi
-import id.adeds.data.interactor.UserInteractor
+import id.adeds.core.api.UserApi
+import id.adeds.core.interactor.UserInteractor
+import id.adeds.core.loader.FeatureManager
+import id.adeds.core.loader.createFeatureManager
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module
-class BaseModule {
+class BaseModule(private val application: Application) {
+
+    @Provides
+    @Singleton
+    fun provideFeatureManager(): FeatureManager = createFeatureManager(application)
 
     @Provides
     @Singleton
@@ -27,6 +31,6 @@ class BaseModule {
 
     @Provides
     @Singleton
-    fun provideUserInteractor(userApi: UserApi) = UserInteractor(userApi)
-
+    fun provideUserInteractor(userApi: UserApi) =
+        UserInteractor(userApi)
 }
