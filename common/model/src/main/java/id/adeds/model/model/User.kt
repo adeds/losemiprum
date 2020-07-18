@@ -1,4 +1,4 @@
-package id.adeds.model
+package id.adeds.model.model
 
 class User(
     val id: Long,

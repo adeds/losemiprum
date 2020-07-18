@@ -1,6 +1,6 @@
-package id.adeds.data.api
+package id.adeds.core.api
 
-import id.adeds.model.User
+import id.adeds.model.model.User
 import retrofit2.http.GET
 
 interface UserApi {

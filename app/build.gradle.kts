@@ -3,7 +3,6 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("kotlin-android")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -55,16 +54,17 @@ dependencies {
 
     val rainbowCakeVersion = "1.0.0"
     val coroutinesVersion = "1.3.7"
-    val hiltVersion = "2.28.1-alpha"
+    val daggerVersion = "2.15"
+    val autoserviceVersion = "1.0-rc7"
 
     //module
-    implementation(project(":common:data"))
+    api(project(":common:core"))
 
     //base
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     implementation("androidx.core:core-ktx:$ktxVersion")
-    implementation("androidx.appcompat:appcompat:$appCompatVersion")
+    api("androidx.appcompat:appcompat:$appCompatVersion")
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
 
     //rainbowcake
@@ -76,11 +76,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
-    //hilt di
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01")
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha01")
-
     implementation("io.coil-kt:coil:0.11.0")
+
+    kapt("com.google.dagger:dagger-android-processor:$daggerVersion")
+    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
+
+    api("com.google.auto.service:auto-service-annotations:$autoserviceVersion")
+    kapt("com.google.auto.service:auto-service:$autoserviceVersion")
 }

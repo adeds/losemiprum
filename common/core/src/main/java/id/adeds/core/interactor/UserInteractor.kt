@@ -1,7 +1,7 @@
-package id.adeds.data.interactor
+package id.adeds.core.interactor
 
-import id.adeds.data.api.UserApi
-import id.adeds.model.User
+import id.adeds.core.api.UserApi
+import id.adeds.model.model.User
 
 
 class UserInteractor(private val userApi: UserApi /*, val userDao: UserDao*/) {
