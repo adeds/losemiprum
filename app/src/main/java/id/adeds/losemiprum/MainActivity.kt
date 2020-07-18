@@ -1,11 +1,16 @@
 package id.adeds.losemiprum
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import co.zsmb.rainbowcake.navigation.SimpleNavActivity
+import id.adeds.losemiprum.home.HomeFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : SimpleNavActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            navigator.add(HomeFragment())
+        }
     }
 }
