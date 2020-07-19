@@ -1,6 +1,7 @@
 package id.adeds.losemiprum.di
 
 import android.app.Application
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import id.adeds.core.api.UserApi
@@ -12,11 +13,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class BaseModule(private val application: Application) {
+class BaseModule {
 
     @Provides
     @Singleton
-    fun provideFeatureManager(): FeatureManager = createFeatureManager(application)
+    internal fun provideContext(application: Application): Context = application
+
+    @Provides
+    @Singleton
+    fun provideFeatureManager(application: Application): FeatureManager =
+        createFeatureManager(application)
 
     @Provides
     @Singleton
@@ -31,6 +37,5 @@ class BaseModule(private val application: Application) {
 
     @Provides
     @Singleton
-    fun provideUserInteractor(userApi: UserApi) =
-        UserInteractor(userApi)
+    fun provideUserInteractor(userApi: UserApi) = UserInteractor(userApi)
 }
