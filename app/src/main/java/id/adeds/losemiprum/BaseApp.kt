@@ -13,8 +13,7 @@ import id.adeds.losemiprum.di.DaggerBaseComponent
 import timber.log.Timber
 import javax.inject.Inject
 
-class BaseApp : RainbowCakeApplication()
-    , HasActivityInjector {
+class BaseApp : RainbowCakeApplication(), HasActivityInjector {
     companion object {
         lateinit var instance: BaseApp
     }
@@ -26,7 +25,6 @@ class BaseApp : RainbowCakeApplication()
             .builder()
             .application(this)
             .build()
-
     }
 
     @Inject
