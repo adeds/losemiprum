@@ -82,4 +82,7 @@ dependencies {
 
     api("com.google.auto.service:auto-service-annotations:$autoserviceVersion")
     kapt("com.google.auto.service:auto-service:$autoserviceVersion")
+
+    api("io.coil-kt:coil:0.11.0")
+
 }
