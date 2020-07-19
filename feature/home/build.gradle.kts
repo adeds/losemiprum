@@ -35,8 +35,4 @@ android {
 dependencies {
     implementation(project(":app"))
     kapt("com.google.auto.service:auto-service:1.0-rc7")
-
-    implementation("androidx.fragment:fragment-ktx:1.2.5")
-    implementation("io.coil-kt:coil:0.11.0")
-
 }
