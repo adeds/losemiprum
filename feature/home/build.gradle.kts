@@ -33,12 +33,10 @@ android {
 }
 
 dependencies {
-    val kotlinVersion = "1.3.72"
-
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
     implementation(project(":app"))
-    implementation("androidx.core:core-ktx:1.3.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     kapt("com.google.auto.service:auto-service:1.0-rc7")
+
+    implementation("androidx.fragment:fragment-ktx:1.2.5")
+    implementation("io.coil-kt:coil:0.11.0")
+
 }

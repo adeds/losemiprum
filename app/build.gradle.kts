@@ -61,22 +61,21 @@ dependencies {
     api(project(":common:core"))
 
     //base
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    implementation("androidx.core:core-ktx:$ktxVersion")
+    api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    api("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    api("androidx.core:core-ktx:$ktxVersion")
     api("androidx.appcompat:appcompat:$appCompatVersion")
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
 
     //rainbowcake
-    implementation("co.zsmb:rainbow-cake-core:$rainbowCakeVersion")
-    implementation("co.zsmb:rainbow-cake-navigation:$rainbowCakeVersion")
-    implementation("co.zsmb:rainbow-cake-dagger:$rainbowCakeVersion")
+    api("co.zsmb:rainbow-cake-core:$rainbowCakeVersion")
+    api("co.zsmb:rainbow-cake-navigation:$rainbowCakeVersion")
+    api("co.zsmb:rainbow-cake-dagger:$rainbowCakeVersion")
+    implementation("co.zsmb:rainbow-cake-timber:$rainbowCakeVersion")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
-
-    implementation("io.coil-kt:coil:0.11.0")
 
     kapt("com.google.dagger:dagger-android-processor:$daggerVersion")
     kapt("com.google.dagger:dagger-compiler:$daggerVersion")

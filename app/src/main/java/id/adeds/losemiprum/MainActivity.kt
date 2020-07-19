@@ -11,11 +11,11 @@ class MainActivity : SimpleNavActivity() {
 
     @Inject
     lateinit var homeModule: HomeModule
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidInjection.inject(this)
         setContentView(R.layout.activity_main)
+
+        AndroidInjection.inject(this)
 
         if (savedInstanceState == null) {
             navigator.add(homeModule.getFeature().getMainScreen(HomeFeature.HOME_FRAGMENT))
