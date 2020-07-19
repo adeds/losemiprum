@@ -18,7 +18,5 @@ class FeatureModule {
 
     @Provides
     @Singleton
-    fun provideHomeFeatureDependencies() = object : HomeFeature.Dependencies {
-
-    }
+    fun provideHomeFeatureDependencies() = object : HomeFeature.Dependencies {}
 }
