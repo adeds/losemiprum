@@ -10,14 +10,19 @@ on:
 
 jobs:
   ktlint:
+    name: Check Code Quality
     runs-on: ubuntu-latest
 
     steps:
-      - name: "checkout"
-        uses: actions/checkout@v2
-
-      - name: "ktlint"
-        uses: "vroy/gha-kotlin-linter@v1"
+      - name: Clone repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          github_token: 53e21ab4dae134772da4b01bf8cabe623ff0c181
+          reporter: github-pr-review # Change reporter
 
   apk:
     name: Generate APK
