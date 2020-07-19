@@ -61,6 +61,4 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
         super.onDestroy()
         _binding = null
     }
-
-
 }

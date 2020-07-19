@@ -32,7 +32,6 @@ class BaseApp : RainbowCakeApplication(), HasActivityInjector {
 
     override fun activityInjector(): AndroidInjector<Activity> = activityInjector
 
-
     override fun onCreate() {
         super.onCreate()
 
